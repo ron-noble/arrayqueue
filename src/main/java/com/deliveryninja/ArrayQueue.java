@@ -1,13 +1,13 @@
 package com.deliveryninja;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 public class ArrayQueue<T> {
 
-    Object[] array;
-    Integer head = 0;
-    Integer tail = null;
+    private Object[] array;
+    private Integer head = 0;
+    private Integer tail = null;
+    private boolean empty = true;
 
     public ArrayQueue(int size){
         array = new Object[size];
@@ -20,13 +20,16 @@ public class ArrayQueue<T> {
 
         int temp = tail;
         tail = increment(tail);
+        if(tail == head){
+            empty = true;
+        }
 
         System.out.println("Returning position " + temp);
         return (T) array[temp];
     }
 
     public void put(T value) {
-        if(head.equals(tail)){
+        if(!empty && head.equals(tail)){
             throw new IllegalStateException("ArrayQueue is full");
         }
 
@@ -37,6 +40,7 @@ public class ArrayQueue<T> {
             tail = head;
         }
 
+        empty = false;
         head = increment(head);
     }
 

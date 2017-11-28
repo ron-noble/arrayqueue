@@ -108,4 +108,24 @@ public class ArrayQueueTest {
         assertEquals("b", valueB);
     }
 
+    @Test
+    public void addElementsAndRetrieveThem545(){
+        ArrayQueue<String> arrayQueue = new ArrayQueue<>(10);
+
+        for(int i = 0 ; i < 10 ; i++){
+            arrayQueue.put("test");
+        }
+
+        for(int i = 0 ; i < 10 ; i++){
+            arrayQueue.get();
+        }
+
+        for(int i = 0 ; i < 10 ; i++){
+            arrayQueue.put("test");
+        }
+
+
+
+    }
+
 }
