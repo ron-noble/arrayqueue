@@ -61,4 +61,51 @@ public class ArrayQueueTest {
         assertEquals("e", valueE);
     }
 
+    @Test
+    public void addElementsAndRetrieveThem10Elements(){
+        ArrayQueue<String> arrayQueue = new ArrayQueue<>(10);
+        arrayQueue.put("a");
+        arrayQueue.put("b");
+        arrayQueue.put("c");
+        arrayQueue.put("d");
+        arrayQueue.put("e");
+        arrayQueue.put("f");
+        arrayQueue.put("g");
+        arrayQueue.put("h");
+        arrayQueue.put("i");
+        arrayQueue.put("j");
+
+        String valueA = arrayQueue.get();
+        String valueB = arrayQueue.get();
+
+        assertEquals("a", valueA);
+        assertEquals("b", valueB);
+
+        arrayQueue.put("a");
+        arrayQueue.put("b");
+
+        String valueC = arrayQueue.get();
+        String valueD = arrayQueue.get();
+        String valueE = arrayQueue.get();
+        String valueF = arrayQueue.get();
+        String valueG = arrayQueue.get();
+        String valueH = arrayQueue.get();
+        String valueI = arrayQueue.get();
+        String valueJ = arrayQueue.get();
+        valueA = arrayQueue.get();
+        valueB = arrayQueue.get();
+
+        assertEquals("c", valueC);
+        assertEquals("d", valueD);
+        assertEquals("e", valueE);
+        assertEquals("f", valueF);
+        assertEquals("g", valueG);
+        assertEquals("h", valueH);
+        assertEquals("i", valueI);
+        assertEquals("j", valueJ);
+
+        assertEquals("a", valueA);
+        assertEquals("b", valueB);
+    }
+
 }
